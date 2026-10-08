@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Slack便利ツール</title>
+<link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav" id="nav" aria-label="ナビゲーション"></nav>
+  <main id="view"></main>
+</div>
+
+<!-- ① コア(順番を変えないこと) -->
+<script src="assets/js/core/registry.js"></script>
+<script src="assets/js/core/ui.js"></script>
+<script src="assets/js/core/app.js"></script>
+
+<!-- ② ツール: 追加するときはここに1行足すだけ -->
+<script src="assets/js/tools/remind.js"></script>
+</body>
+</html>
