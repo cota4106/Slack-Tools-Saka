@@ -5,7 +5,7 @@
    .segmented .days .chips .chip .pill .hidden .btn
    ========================================================= */
 :root{
-  --bg:#f2f2f7; --card:#ffffff; --label:#000000;
+  --bg:#e5e5ea; --card:#ffffff; --label:#000000; --footer-bg:#d1d1d6;
   --label2:rgba(60,60,67,.6); --label3:rgba(60,60,67,.3);
   --sep:rgba(60,60,67,.18); --fill:rgba(118,118,128,.12);
   --blue:#007aff; --green:#34c759; --orange:#ff9500;
@@ -14,11 +14,11 @@
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#000000; --card:#1c1c1e; --label:#ffffff;
+    --bg:#1c1c1e; --card:#2c2c2e; --label:#ffffff; --footer-bg:#2c2c2e;
     --label2:rgba(235,235,245,.6); --label3:rgba(235,235,245,.3);
     --sep:rgba(84,84,88,.6); --fill:rgba(118,118,128,.24);
     --blue:#0a84ff; --green:#30d158; --orange:#ff9f0a;
-    --seg-on:#636366; --bar:rgba(28,28,30,.82); --shadow:none;
+    --seg-on:#636366; --bar:rgba(44,44,46,.82); --shadow:none;
   }
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -163,16 +163,23 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.875e
 .btn.done{background:var(--green)}
 
 /* ---------- 結果バー(ui.createResultBar が生成) ---------- */
-body.has-bar .wrap{padding-bottom:300px} /* 下部固定バーにフッターが隠れないよう余白を確保 */
-
-/* ---------- フッター ---------- */
+/* ---------- フッターバー(画面幅いっぱい・常にページ最下部) ---------- */
+body{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
+.wrap{width:100%;flex:1 0 auto}
 .site-footer{
-  margin-top:40px;padding-top:16px;border-top:.5px solid var(--sep);
-  text-align:center;font-size:.8125rem;color:var(--label2);
+  background:var(--footer-bg);border-top:.5px solid var(--sep);
+  padding:14px 16px calc(env(safe-area-inset-bottom) + 14px);
+  font-size:.875rem;color:var(--label2);
 }
-.site-footer p{margin:0 0 4px}
-.site-footer a{color:var(--label2);text-decoration:underline;text-underline-offset:2px}
+.site-footer-inner{
+  max-width:640px;margin:0 auto;display:flex;flex-wrap:wrap;
+  align-items:center;justify-content:space-between;gap:2px 24px;
+}
+.site-footer p{margin:0}
+.footer-links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0 20px}
+.site-footer a{display:inline-block;padding:8px 0;color:var(--label);font-weight:500}
 .site-footer a:hover{color:var(--blue)}
+body.has-bar .site-footer{padding-bottom:280px} /* 下部固定の結果バーに隠れないよう余白を確保 */
 .bar{
   position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--bar);
   -webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);
