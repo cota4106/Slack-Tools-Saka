@@ -113,7 +113,6 @@
    * エラー時はコピーボタンを無効化。destroy() で撤去。
    */
   function createResultBar({ label = "完成したコマンド", placeholder = "…" } = {}){
-    const view = document.getElementById("view");
     const linesEl = h("div", { class: "bar-lines" });
     const summaryEl = h("p", { class: "bar-summary" });
     const errorEl = h("p", { class: "bar-error hidden" });
@@ -123,7 +122,7 @@
         h("p", { class: "bar-label", text: label }),
         linesEl, summaryEl, errorEl, btn));
     document.body.appendChild(el);
-    if(view) view.classList.add("has-bar");
+    document.body.classList.add("has-bar");
 
     let text = "", multi = false, timer = null;
     function resetBtn(){
@@ -160,7 +159,7 @@
     function destroy(){
       clearTimeout(timer);
       el.remove();
-      if(view) view.classList.remove("has-bar");
+      document.body.classList.remove("has-bar");
     }
 
     set();

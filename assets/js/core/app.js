@@ -16,6 +16,7 @@
       cleanup = null;
     }
     document.querySelectorAll(".bar").forEach(n => n.remove());
+    document.body.classList.remove("has-bar");
     viewEl.className = "";
     viewEl.textContent = "";
     navEl.textContent = "";

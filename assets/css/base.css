@@ -163,7 +163,16 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.875e
 .btn.done{background:var(--green)}
 
 /* ---------- 結果バー(ui.createResultBar が生成) ---------- */
-#view.has-bar{padding-bottom:300px}
+body.has-bar .wrap{padding-bottom:300px} /* 下部固定バーにフッターが隠れないよう余白を確保 */
+
+/* ---------- フッター ---------- */
+.site-footer{
+  margin-top:40px;padding-top:16px;border-top:.5px solid var(--sep);
+  text-align:center;font-size:.8125rem;color:var(--label2);
+}
+.site-footer p{margin:0 0 4px}
+.site-footer a{color:var(--label2);text-decoration:underline;text-underline-offset:2px}
+.site-footer a:hover{color:var(--blue)}
 .bar{
   position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--bar);
   -webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);
