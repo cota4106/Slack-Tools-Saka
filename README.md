@@ -66,3 +66,4 @@ assets/
 /remind #general "朝会の時間です" every Monday at 9:30am
 /remind @tanaka "請求書を送る" on the 1st of every month at 10am
 ```
+
